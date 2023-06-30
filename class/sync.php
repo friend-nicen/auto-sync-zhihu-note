@@ -41,20 +41,17 @@ class Nicen_Sync_Zhihu {
 
 
 		/* 获取书籍详情 */
-		$response = wp_remote_get( 'https://www.zhihu.com/api/v3/books/' . $id, [
-			'timeout'   => '60',
-			'headers'   => $this->headers,
-			'sslverify' => false
-		] );
+		$response = @file_get_contents( 'https://www.zhihu.com/api/v3/books/' . $id );
 
 
 		/* 获取请求结果 */
-		if ( is_wp_error( $response ) ) {
-			throw new \Exception( $response );
+		if ( empty( $response ) ) {
+			throw new \Exception( "网络请求失败！" );
 		}
 
 
-		$json = @json_decode( wp_remote_retrieve_body( $response ), true );
+		$json = @json_decode( $response, true );
+
 
 		/* 获取生成的标题 */
 		if ( isset( $json['error'] ) ) {
