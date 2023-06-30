@@ -17,14 +17,6 @@ function nicen_sync_install() {
 
 nicen_sync_install(); //插件自动设置
 
-/*
- * 关闭插件时注销任务
- * */
-function nicen_sync_end() {
-	wp_clear_scheduled_hook( 'nicen_plugin_auto_publish' ); //清除任务
-}
-
-
 
 
 

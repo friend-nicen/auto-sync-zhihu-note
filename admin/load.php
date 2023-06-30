@@ -48,7 +48,7 @@ function nicen_sync_admin_load_source() {
 	wp_enqueue_style( 'antdcss', 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/ant-design-vue/1.7.8/antd.min.css' );
 
 	wp_enqueue_style( 'admincss', nicen_sync_url . 'assets/admin.css', array(), filemtime( nicen_sync_path . 'assets/admin.css' ) );
-	wp_enqueue_script( 'adminjs', nicen_sync_url . 'assets/admin.js', [ 'chatjs' ], filemtime( nicen_sync_path . 'assets/admin.js' ) );
+	wp_enqueue_script( 'adminjs', nicen_sync_url . 'assets/admin.js', [ 'antd' ], filemtime( nicen_sync_path . 'assets/admin.js' ) );
 	wp_enqueue_script( 'loadjs', nicen_sync_url . 'assets/load.js', array(), filemtime( nicen_sync_path . 'assets/load.js' ) );
 
 	wp_enqueue_script( 'axios', 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/axios/0.26.0/axios.min.js' );
